@@ -12,6 +12,7 @@ var bbApp = bbApp || {};
       'sections': 'getSectionSelect',
       'sections/:section/modules': 'getModuleSelect',
       'sections/:section/modules/:module/:lesson/:exercise': 'getExercise',
+      'sections/:section/modules/:module/success': 'getSuccess'
     },
     initialize: function() {
 
@@ -184,10 +185,8 @@ var bbApp = bbApp || {};
       var modules, thisModule, lessons, thisLesson, thisExercise, nextExercise,
         nextLesson, thisViewModel, href;
 
-      console.log(bbApp.modules);
       modules = bbApp.modules;
       thisModule = modules.get(module);
-      console.log(thisModule);
       lessons = thisModule.get('lessons');
       thisLesson = lessons[lesson];
 
@@ -227,6 +226,22 @@ var bbApp = bbApp || {};
 
       // Load JQM page
       $( 'body' ).pagecontainer( 'change', '#' + exercise + '-page', {
+        changeHash: false
+      });
+    },
+    getSuccess: function(section) {
+
+      // If page doesn't exist, create the view as JQM page
+      if (!this.successView ) {
+        this.successView = new bbApp.SuccessView();
+        $( '#success-page' ).attr( 'data-role', 'page' );
+      }
+
+      $('#success-headline').text('success!');
+      $('#success-link').attr('href', '?#/sections/' + section + '/modules');
+
+      // Load JQM page
+      $( 'body' ).pagecontainer( 'change', '#success-page', {
         changeHash: false
       });
     }
