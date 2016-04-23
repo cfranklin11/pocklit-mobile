@@ -46,7 +46,7 @@ var bbApp = bbApp || {};
       // Actual API response will only send modules from the current section
       testModules = [
         {
-          name: 'module 1',
+          index: 0,
           section: section,
           lessons: [{
             reception: {
@@ -81,7 +81,7 @@ var bbApp = bbApp || {};
           }]
         },
         {
-          name: 'module 2',
+          index: 1,
           section: section,
           lessons: [{
             reception: {
@@ -116,7 +116,7 @@ var bbApp = bbApp || {};
           }]
         },
         {
-          name: 'module 3',
+          index: 2,
           section: section,
           lessons: [{
             reception: {
@@ -157,39 +157,54 @@ var bbApp = bbApp || {};
       this.modulesView = new bbApp.ModulesView({
         collection: bbApp.modules,
       });
-      $('#headline').text(section);
+      $('#modules-headline').text(section);
       $( '#modules-page' ).attr( 'data-role', 'page' );
       $( 'body' ).pagecontainer( 'change', '#modules-page', {
         changeHash: false
       });
     },
     getExercise: function(section, module, lesson, exercise) {
-      var modules, thisModule, thisLesson, thisExercise, thisView, thisViewModel;
+      var modules, thisModule, lessons, thisLesson, thisExercise, nextExercise,
+        nextLesson, thisViewModel, href;
 
+      console.log(bbApp.modules);
       modules = bbApp.modules;
       thisModule = modules.get(module);
-      thisLesson = thisModule.get(lessons)[lesson];
+      console.log(thisModule);
+      lessons = thisModule.get('lessons');
+      thisLesson = lessons[lesson];
 
       switch (exercise) {
         case 'text-input':
           thisExercise = 'textInput';
-          thisViewModel = 'TextInputView';
-          thisPage = 'text-input';
+          nextExercise = 'voice-input';
+          nextLesson = parseFloat(lesson);
           break;
         case 'voice-input':
           thisExercise = 'voiceInput';
-          thisViewModel = 'VoiceInputView';
-          thisPage = 'voice-input';
+          nextExercise = 'reception';
+          nextLesson = (parseFloat(lesson) + 1);
           break;
         default:
           thisExercise = 'reception';
-          thisViewModel = 'ReceptionView';
-          thisPage = 'reception';
+          nextExercise = 'text-input';
+          nextLesson = parseFloat(lesson);
       }
 
-      this[thisExercise + 'View'] = new bbApp[thisViewModel]({model: thisLesson[thisExercise]});
-      $( '#' + thisPage + '-page' ).attr( 'data-role', 'page' );
-      $( 'body' ).pagecontainer( 'change', '#' + thisPage + '-page', {
+      thisViewModel = thisExercise[0].toUpperCase() + thisExercise.slice(1) +
+        'View';
+      this[thisExercise + 'View'] = new bbApp[thisViewModel]({
+        model: thisLesson[thisExercise]
+      });
+
+      $('#' + exercise + '-headline').text(exercise);
+      href = '#/sections/' + section + '/modules/' + module;
+      href += lessons[nextLesson] ? '/' + nextLesson.toFixed() + '/' +
+        nextExercise : '/success';
+      $('#' + exercise + '-link').attr('href', href);
+
+      $( '#' + exercise + '-page' ).attr( 'data-role', 'page' );
+      $( 'body' ).pagecontainer( 'change', '#' + exercise + '-page', {
         changeHash: false
       });
     }

@@ -5,7 +5,7 @@ var bbApp = bbApp || {};
 ( function () {
 
   bbApp.Module = Backbone.Model.extend({
-    idAttribute: 'index'
+    idAttribute: 'index',
     defaults: {
       index: 0,
       section: 'reading',
