@@ -16,19 +16,19 @@ var bbApp = bbApp || {};
         textInput: {
           options: [
             {
-              name: 'option 1',
+              text: 'option 1',
               correct: true
             },
             {
-              name: 'option 2',
+              text: 'option 2',
               correct: true
             },
             {
-            name: 'option 3',
+            text: 'option 3',
             correct: true
             },
             {
-            name: 'option 4',
+            text: 'option 4',
             correct: true
             }
           ]

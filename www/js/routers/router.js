@@ -13,10 +13,35 @@ var bbApp = bbApp || {};
       'test': 'getTest'
     },
     getTest: function() {
+      var model = new bbApp.Module({
+        voiceInput: {
+          text: 'text'
+        },
+        textInput: {
+          options: [
+            {
+              text: 'option 1',
+              correct: false
+            },
+            {
+              text: 'option 2',
+              correct: true
+            },
+            {
+              text: 'option 3',
+              correct: false
+            },
+            {
+              text: 'option 4',
+              correct: false
+            }
+          ]
+        }
+      });
 
       // If page doesn't exist, create the view as JQM page
       if (!this.testView) {
-        this.testView = new bbApp.TestView();
+        this.testView = new bbApp.TestView({model: model});
         $('#test-page').attr('data-role', 'page');
       }
 
@@ -74,32 +99,29 @@ var bbApp = bbApp || {};
           section: section,
           lessons: [{
             reception: {
-              audio: 'audio-file',
               text: 'text'
             },
             textInput: {
-              audio: 'audio-file',
               options: [
                 {
-                  name: 'option 1',
+                  text: 'option 1',
                   correct: true
                 },
                 {
-                  name: 'option 2',
+                  text: 'option 2',
                   correct: true
                 },
                 {
-                name: 'option 3',
-                correct: true
+                  text: 'option 3',
+                  correct: true
                 },
                 {
-                name: 'option 4',
-                correct: true
+                  text: 'option 4',
+                  correct: true
                 }
               ]
             },
-            audioInput: {
-              audio: 'audio-file',
+            voiceInput: {
               text: 'text'
             }
           }]
@@ -109,32 +131,29 @@ var bbApp = bbApp || {};
           section: section,
           lessons: [{
             reception: {
-              audio: 'audio-file',
               text: 'text'
             },
             textInput: {
-              audio: 'audio-file',
               options: [
                 {
-                  name: 'option 1',
+                  text: 'option 1',
                   correct: true
                 },
                 {
-                  name: 'option 2',
+                    text: 'option 2',
+                    correct: true
+                },
+                {
+                  text: 'option 3',
                   correct: true
                 },
                 {
-                name: 'option 3',
-                correct: true
-                },
-                {
-                name: 'option 4',
-                correct: true
+                  text: 'option 4',
+                  correct: true
                 }
               ]
             },
-            audioInput: {
-              audio: 'audio-file',
+            voiceInput: {
               text: 'text'
             }
           }]
@@ -144,32 +163,29 @@ var bbApp = bbApp || {};
           section: section,
           lessons: [{
             reception: {
-              audio: 'audio-file',
               text: 'text'
             },
             textInput: {
-              audio: 'audio-file',
               options: [
                 {
-                  name: 'option 1',
+                  text: 'option 1',
                   correct: true
                 },
                 {
-                  name: 'option 2',
+                  text: 'option 2',
                   correct: true
                 },
                 {
-                name: 'option 3',
-                correct: true
+                  text: 'option 3',
+                  correct: true
                 },
                 {
-                name: 'option 4',
-                correct: true
+                  text: 'option 4',
+                  correct: true
                 }
               ]
             },
-            audioInput: {
-              audio: 'audio-file',
+            voiceInput: {
               text: 'text'
             }
           }]

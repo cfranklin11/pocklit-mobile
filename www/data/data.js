@@ -15,19 +15,19 @@ bbApp.testModuleData = [
         audio: 'audio-file',
         options: [
           {
-            name: 'K',
+            text: 'K',
             correct: true
           },
           {
-            name: 'T',
+            text: 'T',
             correct: false
           },
           {
-          name: 'O',
+          text: 'O',
           correct: false
           },
           {
-          name: 'S',
+          text: 'S',
           correct: false
           }
         ]
@@ -50,19 +50,19 @@ bbApp.testModuleData = [
         audio: 'audio-file',
         options: [
           {
-            name: 'H',
+            text: 'H',
             correct: false
           },
           {
-            name: 'B',
+            text: 'B',
             correct: false
           },
           {
-          name: 'E',
+          text: 'E',
           correct: true
           },
           {
-          name: 'W',
+          text: 'W',
           correct: false
           }
         ]
@@ -85,19 +85,19 @@ bbApp.testModuleData = [
         audio: 'audio-file',
         options: [
           {
-            name: '4',
+            text: '4',
             correct: false
           },
           {
-            name: '8',
+            text: '8',
             correct: true
           },
           {
-          name: '3',
+          text: '3',
           correct: false
           },
           {
-          name: '5',
+          text: '5',
           correct: false
           }
         ]
@@ -120,19 +120,19 @@ bbApp.testModuleData = [
         audio: 'audio-file',
         options: [
           {
-            name: '6',
+            text: '6',
             correct: false
           },
           {
-            name: '2',
+            text: '2',
             correct: false
           },
           {
-            name: '3',
+            text: '3',
             correct: true
           },
           {
-            name: '7',
+            text: '7',
             correct: false
           }
         ]
