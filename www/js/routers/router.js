@@ -220,7 +220,7 @@ var bbApp = bbApp || {};
       }
 
       $('#' + exercise + '-headline').text(exercise);
-      href = '#/sections/' + section + '/modules/' + module;
+      href = '?#/sections/' + section + '/modules/' + module;
       href += lessons[nextLesson] ? '/' + nextLesson.toFixed() + '/' +
         nextExercise : '/success';
       $('#' + exercise + '-link').attr('href', href);
