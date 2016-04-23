@@ -2,7 +2,7 @@
 
 var bbApp = bbApp || {};
 
-(function () {
+(function() {
   var Modules = Backbone.Collection.extend({
     model: bbApp.Module
   });

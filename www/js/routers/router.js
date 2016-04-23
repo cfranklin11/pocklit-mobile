@@ -1,11 +1,8 @@
-// TODO
-//  * Set up timer and API call to mimic real-time data
-
 'use strict';
 
 var bbApp = bbApp || {};
 
-( function ( $ ) {
+(function($) {
   var AppRouter = Backbone.Router.extend({
     routes: {
       '': 'getLanding',
@@ -17,39 +14,39 @@ var bbApp = bbApp || {};
     initialize: function() {
 
       // Handle back button throughout the application
-      $( '.back' ).on( 'click', function() {
+      $('.back').on('click', function() {
         window.history.back();
         return false;
       });
 
       this.firstPage = true;
     },
-    start: function () {
+    start: function() {
       Backbone.history.start();
     },
-    getLanding: function () {
+    getLanding: function() {
 
       // If page doesn't exist, create the view as JQM page
-      if (!this.landingView ) {
+      if (!this.landingView) {
         this.landingView = new bbApp.LandingView();
-        $( '#landing-page' ).attr( 'data-role', 'page' );
+        $('#landing-page').attr('data-role', 'page');
       }
 
       // Load JQM page
-      $( 'body' ).pagecontainer( 'change', '#landing-page', {
+      $('body').pagecontainer('change', '#landing-page', {
         changeHash: false
       });
     },
     getSectionSelect: function() {
 
       // If page doesn't exist, create the view as JQM page
-      if (!this.sectionsView ) {
+      if (!this.sectionsView) {
         this.sectionsView = new bbApp.SectionsView();
-        $( '#sections-page' ).attr( 'data-role', 'page' );
+        $('#sections-page').attr('data-role', 'page');
       }
 
       // Load JQM page
-      $( 'body' ).pagecontainer( 'change', '#sections-page', {
+      $('body').pagecontainer('change', '#sections-page', {
         changeHash: false
       });
     },
@@ -168,16 +165,16 @@ var bbApp = bbApp || {};
       bbApp.modules.reset(testModules);
 
       // If page doesn't exist, create the view as JQM page
-      if (!this.modulesView ) {
+      if (!this.modulesView) {
         this.modulesView = new bbApp.ModulesView({
           collection: bbApp.modules
         });
-        $( '#modules-page' ).attr( 'data-role', 'page' );
+        $('#modules-page').attr('data-role', 'page');
       }
 
       // Load JQM page
       $('#modules-headline').text(section);
-      $( 'body' ).pagecontainer( 'change', '#modules-page', {
+      $('body').pagecontainer('change', '#modules-page', {
         changeHash: false
       });
     },
@@ -199,7 +196,7 @@ var bbApp = bbApp || {};
         case 'voice-input':
           thisExercise = 'voiceInput';
           nextExercise = 'reception';
-          nextLesson = (parseFloat(lesson) + 1);
+          nextLesson =(parseFloat(lesson) + 1);
           break;
         default:
           thisExercise = 'reception';
@@ -215,7 +212,11 @@ var bbApp = bbApp || {};
         this[thisExercise + 'View'] = new bbApp[thisViewModel]({
           model: thisLesson[thisExercise]
         });
-        $( '#' + exercise + '-page' ).attr( 'data-role', 'page' );
+        $('#' + exercise + '-page').attr('data-role', 'page');
+
+      // Otherwise, change the model for the view, instigating render()
+      } else {
+        this[thisExercise + 'View'].model.set(thisLesson[thisExercise]);
       }
 
       $('#' + exercise + '-headline').text(exercise);
@@ -225,23 +226,22 @@ var bbApp = bbApp || {};
       $('#' + exercise + '-link').attr('href', href);
 
       // Load JQM page
-      $( 'body' ).pagecontainer( 'change', '#' + exercise + '-page', {
+      $('body').pagecontainer('change', '#' + exercise + '-page', {
         changeHash: false
       });
     },
     getSuccess: function(section) {
 
       // If page doesn't exist, create the view as JQM page
-      if (!this.successView ) {
+      if (!this.successView) {
         this.successView = new bbApp.SuccessView();
-        $( '#success-page' ).attr( 'data-role', 'page' );
+        $('#success-page').attr('data-role', 'page');
       }
 
-      $('#success-headline').text('success!');
       $('#success-link').attr('href', '?#/sections/' + section + '/modules');
 
       // Load JQM page
-      $( 'body' ).pagecontainer( 'change', '#success-page', {
+      $('body').pagecontainer('change', '#success-page', {
         changeHash: false
       });
     }
@@ -249,4 +249,4 @@ var bbApp = bbApp || {};
 
   // Create Backbone router
   bbApp.appRouter = new AppRouter();
-})( jQuery );
+})(jQuery);

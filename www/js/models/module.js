@@ -2,7 +2,7 @@
 
 var bbApp = bbApp || {};
 
-( function () {
+(function() {
 
   bbApp.Module = Backbone.Model.extend({
     idAttribute: 'index',
