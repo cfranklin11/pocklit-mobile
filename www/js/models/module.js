@@ -11,11 +11,9 @@ var bbApp = bbApp || {};
       section: 'reading',
       lessons: [{
         reception: {
-          audio: 'audio-file',
           text: 'text'
         },
         textInput: {
-          audio: 'audio-file',
           options: [
             {
               name: 'option 1',
@@ -36,7 +34,6 @@ var bbApp = bbApp || {};
           ]
         },
         voiceInput: {
-          audio: 'audio-file',
           text: 'text'
         }
       }]

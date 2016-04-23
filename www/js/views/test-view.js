@@ -36,7 +36,7 @@ var bbApp = bbApp || {};
       //recognition.continuous = false;
       recognition.lang = 'en-US';
       recognition.interimResults = false;
-      recognition.maxAlternatives = 1;
+      recognition.maxAlternatives = 3;
 
       recognition.start();
       console.log('Ready to receive a letter.');
@@ -68,7 +68,41 @@ var bbApp = bbApp || {};
       }
     },
     testRead: function() {
-      console.log('reading');
+      var synth, inputTxt, voices, pitch, rate, utterThis, selectedOption, i;
+      synth = window.speechSynthesis;
+
+      inputTxt = 'hello';//this.model.attributes.text;
+      voices = [];
+
+      function populateVoiceList() {
+        voices = synth.getVoices();
+      }
+
+      populateVoiceList();
+      if (speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = populateVoiceList;
+      }
+
+      pitch = 1;
+      rate = 0.75;
+      utterThis = new SpeechSynthesisUtterance(inputTxt);
+
+      // getVoices() is asynchronoush; _.delay give voices time to load,
+      // so we can choose one.
+      _.delay(function() {
+        selectedOption = 'Google US English';
+        for(i = 0; i < voices.length ; i++) {
+          if(voices[i].name === selectedOption) {
+            utterThis.voice = voices[i];
+            break;
+          }
+        }
+
+        utterThis.pitch = pitch;
+        utterThis.rate = rate;
+
+        synth.speak(utterThis);
+      }, 25);
     },
     render: function() {
       var html = this.$el.html(this.template());
