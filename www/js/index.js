@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var bbApp = bbApp || {};
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -47,3 +49,14 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+$(function() {
+
+  // Set defaults for swipe event
+  // (made distance shorter and time longer, so it would swipe more easily)
+  // $.event.special.swipe.horizontalDistanceThreshold = 15;
+  // $.event.special.swipe.durationThreshold = 2000;
+
+  // Start Backbone router
+  bbApp.appRouter.start();
+});
