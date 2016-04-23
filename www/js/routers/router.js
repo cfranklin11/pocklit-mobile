@@ -9,7 +9,21 @@ var bbApp = bbApp || {};
       'sections': 'getSectionSelect',
       'sections/:section/modules': 'getModuleSelect',
       'sections/:section/modules/:module/:lesson/:exercise': 'getExercise',
-      'sections/:section/modules/:module/success': 'getSuccess'
+      'sections/:section/modules/:module/success': 'getSuccess',
+      'test': 'getTest'
+    },
+    getTest: function() {
+
+      // If page doesn't exist, create the view as JQM page
+      if (!this.testView) {
+        this.testView = new bbApp.TestView();
+        $('#test-page').attr('data-role', 'page');
+      }
+
+      // Load JQM page
+      $('body').pagecontainer('change', '#test-page', {
+        changeHash: false
+      });
     },
     initialize: function() {
 

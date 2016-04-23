@@ -32,7 +32,7 @@ bbApp.testModuleData = [
           }
         ]
       },
-      audioInput: {
+      voiceInput: {
         audio: 'audio-file',
         text: 'K'
       }
@@ -67,7 +67,7 @@ bbApp.testModuleData = [
           }
         ]
       },
-      audioInput: {
+      voiceInput: {
         audio: 'audio-file',
         text: 'E'
       }
@@ -102,7 +102,7 @@ bbApp.testModuleData = [
           }
         ]
       },
-      audioInput: {
+      voiceInput: {
         audio: 'audio-file',
         text: '8'
       }
@@ -137,7 +137,7 @@ bbApp.testModuleData = [
           }
         ]
       },
-      audioInput: {
+      voiceInput: {
         audio: 'audio-file',
         text: '3'
       }
