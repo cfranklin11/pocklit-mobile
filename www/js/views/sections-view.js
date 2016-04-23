@@ -2,13 +2,13 @@
 
 var bbApp = bbApp || {};
 
-// Create the landing view (no header or navbar)
+// Create the sections view (no header or navbar)
 ( function ( $ ) {
-  bbApp.LandingView = Backbone.View.extend({
+  bbApp.SectionsView = Backbone.View.extend({
     attributes: {
-      id: 'landing-page'
+      id: 'sections-page'
     },
-    template: _.template( $( '#landing-view' ).html() ),
+    template: _.template( $( '#sections-view' ).html() ),
     initialize: function () {
       this.render();
     },

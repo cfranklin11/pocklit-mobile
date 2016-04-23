@@ -34,9 +34,9 @@ var bbApp = bbApp || {};
       });
     },
     getSectionSelect: function() {
-      this.sectionView = new bbApp.SectionView();
-      $( '#section-page' ).attr( 'data-role', 'page' );
-      $( 'body' ).pagecontainer( 'change', '#section-page', {
+      this.sectionsView = new bbApp.SectionsView();
+      $( '#sections-page' ).attr( 'data-role', 'page' );
+      $( 'body' ).pagecontainer( 'change', '#sections-page', {
         changeHash: false
       });
     }
