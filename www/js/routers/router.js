@@ -43,6 +43,7 @@ var bbApp = bbApp || {};
     getModuleSelect: function(section) {
       var testModules;
 
+      // Actual API response will only send modules from the current section
       testModules = [
         {
           name: 'module 1',
@@ -159,6 +160,36 @@ var bbApp = bbApp || {};
       $('#headline').text(section);
       $( '#modules-page' ).attr( 'data-role', 'page' );
       $( 'body' ).pagecontainer( 'change', '#modules-page', {
+        changeHash: false
+      });
+    },
+    getExercise: function(section, module, lesson, exercise) {
+      var modules, thisModule, thisLesson, thisExercise, thisView, thisViewModel;
+
+      modules = bbApp.modules;
+      thisModule = modules.get(module);
+      thisLesson = thisModule.get(lessons)[lesson];
+
+      switch (exercise) {
+        case 'text-input':
+          thisExercise = 'textInput';
+          thisViewModel = 'TextInputView';
+          thisPage = 'text-input';
+          break;
+        case 'voice-input':
+          thisExercise = 'voiceInput';
+          thisViewModel = 'VoiceInputView';
+          thisPage = 'voice-input';
+          break;
+        default:
+          thisExercise = 'reception';
+          thisViewModel = 'ReceptionView';
+          thisPage = 'reception';
+      }
+
+      this[thisExercise + 'View'] = new bbApp[thisViewModel]({model: thisLesson[thisExercise]});
+      $( '#' + thisPage + '-page' ).attr( 'data-role', 'page' );
+      $( 'body' ).pagecontainer( 'change', '#' + thisPage + '-page', {
         changeHash: false
       });
     }

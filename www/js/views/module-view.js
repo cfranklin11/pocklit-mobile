@@ -5,7 +5,7 @@ var bbApp = bbApp || {};
 (function($) {
   bbApp.ModuleView = Backbone.View.extend({
     template: _.template(
-      '<a href="#/sections/<%= section %>/modules/<%= name %>/0/reception"><p><%= name %></p></a>'
+      '<a href="#/sections/<%= section %>/modules/<%= index %>/0/reception"><p>module <%= index %></p></a>'
     ),
     initialize: function () {
       this.render()

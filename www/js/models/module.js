@@ -5,8 +5,9 @@ var bbApp = bbApp || {};
 ( function () {
 
   bbApp.Module = Backbone.Model.extend({
+    idAttribute: 'index'
     defaults: {
-      name: 'module 1',
+      index: 0,
       section: 'reading',
       lessons: [{
         reception: {
@@ -34,7 +35,7 @@ var bbApp = bbApp || {};
             }
           ]
         },
-        audioInput: {
+        voiceInput: {
           audio: 'audio-file',
           text: 'text'
         }
