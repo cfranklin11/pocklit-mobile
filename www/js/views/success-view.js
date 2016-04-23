@@ -2,13 +2,13 @@
 
 var bbApp = bbApp || {};
 
-// Create the sections view (no header or navbar)
+// Create the success view (no header or navbar)
 (function($) {
-  bbApp.SectionsView = Backbone.View.extend({
+  bbApp.SuccessView = Backbone.View.extend({
     attributes: {
-      id: 'sections-page'
+      id: 'success-page'
     },
-    template: _.template($('#sections-view').html()),
+    template: _.template($('#success-view').html()),
     initialize: function() {
       this.render();
     },

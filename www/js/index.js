@@ -50,7 +50,7 @@ var app = {
     }
 };
 
-$( function () {
+$(function() {
 
   // Set defaults for swipe event
   // (made distance shorter and time longer, so it would swipe more easily)
@@ -59,5 +59,4 @@ $( function () {
 
   // Start Backbone router
   bbApp.appRouter.start();
-
 });

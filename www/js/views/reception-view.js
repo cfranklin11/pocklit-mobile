@@ -2,14 +2,15 @@
 
 var bbApp = bbApp || {};
 
-// Create the sections view (no header or navbar)
+// Create the reception view (no header or navbar)
 (function($) {
-  bbApp.SectionsView = Backbone.View.extend({
+  bbApp.ReceptionView = Backbone.View.extend({
     attributes: {
-      id: 'sections-page'
+      id: 'reception-page'
     },
-    template: _.template($('#sections-view').html()),
+    template: _.template($('#reception-view').html()),
     initialize: function() {
+      this.model.on('change', this.render, this);
       this.render();
     },
     render: function() {

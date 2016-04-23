@@ -31,19 +31,6 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 
-    <!-- Loading jQuery in head, so persistent header code will work -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-    <!-- Script for persistent header & navbar -->
-    <script>
-      $( function () {
-        'use strict';
-
-        $( "[data-role='navbar']" ).navbar();
-        $( "[data-role='header'], [data-role='footer']" ).toolbar();
-      });
-    </script>
-
     <title>Pocklit</title>
   </head>
   <body>
@@ -65,6 +52,7 @@
     <script type="text/template" id="sections-view">
 
       <h1>Sections</h1>
+      <a href="?#/"><p>home</p></a>
 
       <div class="ui-body">
         <form action="#/sections/reading/modules" method="get" id="reading-form">
@@ -76,7 +64,58 @@
       </div>
     </script>
 
-    <script type="text/javascript" src="cordova.js"></script>
+    <!-- **** MODULES VIEW **** -->
+    <script type="text/template" id="modules-view">
+
+      <h1 id="modules-headline"></h1>
+      <a href="?#/sections"><p>sections menu</p></a>
+
+      <div class="ui-body">
+      </div>
+    </script>
+
+    <!-- **** RECEPTION VIEW **** -->
+    <script type="text/template" id="reception-view">
+
+      <h1 id="reception-headline"></h1>
+
+      <div class="ui-body">
+        <a id="reception-link" href="#/"><p>next exercise</p></a>
+      </div>
+    </script>
+
+    <!-- **** TEXT INPUT VIEW **** -->
+    <script type="text/template" id="text-input-view">
+
+      <h1 id="text-input-headline"></h1>
+
+      <div class="ui-body">
+        <a id="text-input-link" href="#/"><p>next exercise</p></a>
+      </div>
+    </script>
+
+    <!-- **** VOICE INPUT VIEW **** -->
+    <script type="text/template" id="voice-input-view">
+
+      <h1 id="voice-input-headline"></h1>
+
+      <div class="ui-body">
+        <a id="voice-input-link" href="#/"><p>next exercise</p></a>
+      </div>
+    </script>
+
+    <!-- **** SUCCESS VIEW **** -->
+    <script type="text/template" id="success-view">
+
+      <h1 id="success-headline">success!</h1>
+
+      <div class="ui-body">
+        <a id="success-link" href="#/"><p>go to modules</p></a>
+      </div>
+    </script>
+
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/config-jqm.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="js/lib/underscore.js"></script>
@@ -84,9 +123,15 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/routers/router.js"></script>
     <script type="text/javascript" src="js/models/module.js"></script>
+    <script type="text/javascript" src="js/collections/modules.js"></script>
     <script type="text/javascript" src="js/views/landing-view.js"></script>
     <script type="text/javascript" src="js/views/sections-view.js"></script>
-
+    <script type="text/javascript" src="js/views/modules-view.js"></script>
+    <script type="text/javascript" src="js/views/module-view.js"></script>
+    <script type="text/javascript" src="js/views/reception-view.js"></script>
+    <script type="text/javascript" src="js/views/text-input-view.js"></script>
+    <script type="text/javascript" src="js/views/voice-input-view.js"></script>
+    <script type="text/javascript" src="js/views/success-view.js"></script>
 
     <script type="text/javascript">
       app.initialize();
