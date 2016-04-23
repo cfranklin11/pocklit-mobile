@@ -27,15 +27,27 @@ var bbApp = bbApp || {};
       Backbone.history.start();
     },
     getLanding: function () {
-      this.landingView = new bbApp.LandingView();
-      $( '#landing-page' ).attr( 'data-role', 'page' );
+
+      // If page doesn't exist, create the view as JQM page
+      if (!this.landingView ) {
+        this.landingView = new bbApp.LandingView();
+        $( '#landing-page' ).attr( 'data-role', 'page' );
+      }
+
+      // Load JQM page
       $( 'body' ).pagecontainer( 'change', '#landing-page', {
         changeHash: false
       });
     },
     getSectionSelect: function() {
-      this.sectionsView = new bbApp.SectionsView();
-      $( '#sections-page' ).attr( 'data-role', 'page' );
+
+      // If page doesn't exist, create the view as JQM page
+      if (!this.sectionsView ) {
+        this.sectionsView = new bbApp.SectionsView();
+        $( '#sections-page' ).attr( 'data-role', 'page' );
+      }
+
+      // Load JQM page
       $( 'body' ).pagecontainer( 'change', '#sections-page', {
         changeHash: false
       });
@@ -154,11 +166,16 @@ var bbApp = bbApp || {};
 
       bbApp.modules.reset(testModules);
 
-      this.modulesView = new bbApp.ModulesView({
-        collection: bbApp.modules,
-      });
+      // If page doesn't exist, create the view as JQM page
+      if (!this.modulesView ) {
+        this.modulesView = new bbApp.ModulesView({
+          collection: bbApp.modules
+        });
+        $( '#modules-page' ).attr( 'data-role', 'page' );
+      }
+
+      // Load JQM page
       $('#modules-headline').text(section);
-      $( '#modules-page' ).attr( 'data-role', 'page' );
       $( 'body' ).pagecontainer( 'change', '#modules-page', {
         changeHash: false
       });
@@ -193,9 +210,14 @@ var bbApp = bbApp || {};
 
       thisViewModel = thisExercise[0].toUpperCase() + thisExercise.slice(1) +
         'View';
-      this[thisExercise + 'View'] = new bbApp[thisViewModel]({
-        model: thisLesson[thisExercise]
-      });
+
+      // If page doesn't exist, create the view as JQM page
+      if (!this[thisExercise + 'View']) {
+        this[thisExercise + 'View'] = new bbApp[thisViewModel]({
+          model: thisLesson[thisExercise]
+        });
+        $( '#' + exercise + '-page' ).attr( 'data-role', 'page' );
+      }
 
       $('#' + exercise + '-headline').text(exercise);
       href = '#/sections/' + section + '/modules/' + module;
@@ -203,7 +225,7 @@ var bbApp = bbApp || {};
         nextExercise : '/success';
       $('#' + exercise + '-link').attr('href', href);
 
-      $( '#' + exercise + '-page' ).attr( 'data-role', 'page' );
+      // Load JQM page
       $( 'body' ).pagecontainer( 'change', '#' + exercise + '-page', {
         changeHash: false
       });
