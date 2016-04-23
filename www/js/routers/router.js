@@ -39,6 +39,128 @@ var bbApp = bbApp || {};
       $( 'body' ).pagecontainer( 'change', '#sections-page', {
         changeHash: false
       });
+    },
+    getModuleSelect: function(section) {
+      var testModules;
+
+      testModules = [
+        {
+          name: 'module 1',
+          section: section,
+          lessons: [{
+            reception: {
+              audio: 'audio-file',
+              text: 'text'
+            },
+            textInput: {
+              audio: 'audio-file',
+              options: [
+                {
+                  name: 'option 1',
+                  correct: true
+                },
+                {
+                  name: 'option 2',
+                  correct: true
+                },
+                {
+                name: 'option 3',
+                correct: true
+                },
+                {
+                name: 'option 4',
+                correct: true
+                }
+              ]
+            },
+            audioInput: {
+              audio: 'audio-file',
+              text: 'text'
+            }
+          }]
+        },
+        {
+          name: 'module 2',
+          section: section,
+          lessons: [{
+            reception: {
+              audio: 'audio-file',
+              text: 'text'
+            },
+            textInput: {
+              audio: 'audio-file',
+              options: [
+                {
+                  name: 'option 1',
+                  correct: true
+                },
+                {
+                  name: 'option 2',
+                  correct: true
+                },
+                {
+                name: 'option 3',
+                correct: true
+                },
+                {
+                name: 'option 4',
+                correct: true
+                }
+              ]
+            },
+            audioInput: {
+              audio: 'audio-file',
+              text: 'text'
+            }
+          }]
+        },
+        {
+          name: 'module 3',
+          section: section,
+          lessons: [{
+            reception: {
+              audio: 'audio-file',
+              text: 'text'
+            },
+            textInput: {
+              audio: 'audio-file',
+              options: [
+                {
+                  name: 'option 1',
+                  correct: true
+                },
+                {
+                  name: 'option 2',
+                  correct: true
+                },
+                {
+                name: 'option 3',
+                correct: true
+                },
+                {
+                name: 'option 4',
+                correct: true
+                }
+              ]
+            },
+            audioInput: {
+              audio: 'audio-file',
+              text: 'text'
+            }
+          }]
+        }
+      ];
+
+      bbApp.modules.reset(testModules);
+
+      this.modulesView = new bbApp.ModulesView({
+        collection: bbApp.modules,
+        section: section
+      });
+      $( '#modules-page' ).attr( 'data-role', 'page' );
+      $( 'body' ).pagecontainer( 'change', '#modules-page', {
+        changeHash: false
+      });
     }
   });
 
