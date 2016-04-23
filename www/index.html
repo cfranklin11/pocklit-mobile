@@ -54,12 +54,26 @@
       <h1>Pocklit</h1>
 
       <div class="ui-body">
-        <form action="#/" method="get" id="landing-form">
+        <form action="#/sections" method="get" id="landing-form">
           <button type="submit" class="ui-btn ui-corner-all">YES</button>
         </form>
         <button type="button" class="ui-btn ui-corner-all">NO</button>
       </div>
+    </script>
 
+    <!-- **** SECTIONS VIEW **** -->
+    <script type="text/template" id="sections-view">
+
+      <h1>Sections</h1>
+
+      <div class="ui-body">
+        <form action="#/sections/reading/modules" method="get" id="reading-form">
+          <button type="submit" class="ui-btn ui-corner-all">READING</button>
+        </form>
+        <form action="#/sections/numbers/modules" method="get" id="numbers-form">
+          <button type="submit" class="ui-btn ui-corner-all">NUMBERS</button>
+        </form>
+      </div>
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>
@@ -71,7 +85,7 @@
     <script type="text/javascript" src="js/routers/router.js"></script>
     <script type="text/javascript" src="js/models/module.js"></script>
     <script type="text/javascript" src="js/views/landing-view.js"></script>
-
+    <script type="text/javascript" src="js/views/sections-view.js"></script>
 
 
     <script type="text/javascript">
