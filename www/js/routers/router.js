@@ -32,6 +32,13 @@ var bbApp = bbApp || {};
       $( 'body' ).pagecontainer( 'change', '#landing-page', {
         changeHash: false
       });
+    },
+    getSectionSelect: function() {
+      this.sectionView = new bbApp.SectionView();
+      $( '#section-page' ).attr( 'data-role', 'page' );
+      $( 'body' ).pagecontainer( 'change', '#section-page', {
+        changeHash: false
+      });
     }
   });
 

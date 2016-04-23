@@ -7,7 +7,7 @@ var bbApp = bbApp || {};
   bbApp.Module = Backbone.Model.extend({
     defaults: {
       lessons: [{
-        name: 'lesson 1'
+        name: 'lesson 1',
         reception: {
           audio: 'audio-file',
           text: 'text'
