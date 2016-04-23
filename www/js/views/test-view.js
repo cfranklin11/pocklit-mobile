@@ -32,7 +32,7 @@ var bbApp = bbApp || {};
       SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
       // Define possible words
-      grammar = '#JSGF V1.0; grammar letters; public <letter> = text | checks | context | sex | tacks | tax | A | B | C | ' +
+      grammar = '#JSGF V1.0; grammar letters; public <letter> = A | B | C | ' +
         'D | E | F | F | H | I | J | K | L | M | N | O | P | Q | R | S | ' +
         'T | U | V | W | X | Y | Z;';
       recognition = new SpeechRecognition();
