@@ -155,8 +155,8 @@ var bbApp = bbApp || {};
 
       this.modulesView = new bbApp.ModulesView({
         collection: bbApp.modules,
-        section: section
       });
+      $('#headline').text(section);
       $( '#modules-page' ).attr( 'data-role', 'page' );
       $( 'body' ).pagecontainer( 'change', '#modules-page', {
         changeHash: false

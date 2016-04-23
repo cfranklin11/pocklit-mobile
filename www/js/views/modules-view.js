@@ -7,11 +7,10 @@ var bbApp = bbApp || {};
     attributes: {
       id: 'modules-page'
     },
-    template: _.template('<h1>' + this.section + '</h1>' + $( '#modules-view' ).html() ),
+    template: _.template($( '#modules-view' ).html() ),
     initialize: function(options) {
       this.collection.on('add', this.addOne, this);
       this.collection.on('reset', this.render, this);
-      this.section = options.section;
       this.render();
     },
     render: function() {
