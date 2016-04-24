@@ -11,7 +11,7 @@ Server-side app hosted at: https://pocklit.herokuapp.com
 
 More information about the process of this challenge can be found here: http://quiltyweb.com/pocklit/
 Collaborators:
-- @meligatt
+- Melissa Gattoni (https://github.com/meligatt)
 - Diego Rivera
 - Fabi Borquez
 
