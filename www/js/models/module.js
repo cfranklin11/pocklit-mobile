@@ -8,8 +8,10 @@ var bbApp = bbApp || {};
     idAttribute: 'index',
     defaults: {
       index: 0,
+      name:'Tales',
       section: 'reading',
-      lessons: [{
+      lessons: [
+        {
         reception: {
           text: 'text'
         },
