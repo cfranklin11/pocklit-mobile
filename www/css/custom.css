@@ -4,7 +4,10 @@
 .ui-bar-inherit {
     background-color: #FFAB91!important;
     padding: 3px;
+    border-color: #FF8A65;
 }
+[data-role=page]{height: 100% !important; position:relative !important;}
+[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}
 
 .center {
   margin: auto;
@@ -76,4 +79,13 @@ margin: 0;
   text-align: center;
   border-radius: 8px;
   height: 50px;
+}
+#modules-page > .header {
+  background-color: #FFAB91!important;
+  padding: 3px;
+  text-align: center;
+}
+#modules-page > .footer {
+  background-color: #FFAB91!important;
+  padding: 3px;
 }

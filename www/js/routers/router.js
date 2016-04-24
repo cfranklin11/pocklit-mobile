@@ -104,12 +104,15 @@ var bbApp = bbApp || {};
       });
     },
     getModuleSelect: function(section) {
-      var testModules;
+      var testModules, sectName;
+
+      sectName = section === 'reading' ? 'Tales' : 'Puzzles';
 
       // Actual API response will only send modules from the current section
       testModules = [
         {
           index: 0,
+          name: sectName,
           section: section,
           lessons: [{
             reception: {
@@ -142,6 +145,7 @@ var bbApp = bbApp || {};
         },
         {
           index: 1,
+          name: sectName,
           section: section,
           lessons: [{
             reception: {
@@ -174,6 +178,7 @@ var bbApp = bbApp || {};
         },
         {
           index: 2,
+          name: sectName,
           section: section,
           lessons: [{
             reception: {
@@ -211,6 +216,7 @@ var bbApp = bbApp || {};
       // If page doesn't exist, create the view as JQM page
       if (!this.modulesView) {
         this.modulesView = new bbApp.ModulesView({
+          section: section,
           collection: bbApp.modules
         });
         $('#modules-page').attr('data-role', 'page');
@@ -250,11 +256,10 @@ var bbApp = bbApp || {};
 
       thisViewModel = thisExercise[0].toUpperCase() + thisExercise.slice(1) +
         'View';
-
       // If page doesn't exist, create the view as JQM page
       if (!this[thisExercise + 'View']) {
         this[thisExercise + 'View'] = new bbApp[thisViewModel]({
-          model: thisLesson[thisExercise]
+          model: thisModule
         });
         $('#' + exercise + '-page').attr('data-role', 'page');
 
@@ -282,7 +287,8 @@ var bbApp = bbApp || {};
         $('#success-page').attr('data-role', 'page');
       }
 
-      $('#success-link').attr('href', '?#/sections/' + section + '/modules');
+      // $('#success-link').attr('href', '?#/sections/' + section + '/modules');
+      $('#success-link').attr('href', '?#/sections');
 
       // Load JQM page
       $('body').pagecontainer('change', '#success-page', {

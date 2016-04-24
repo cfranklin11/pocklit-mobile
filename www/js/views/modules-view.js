@@ -12,14 +12,19 @@ var bbApp = bbApp || {};
     template: _.template($('#modules-view').html()),
 
     initialize: function(options) {
+      this.section = options.section;
       this.collection.on('add', this.addOne, this);
       this.collection.on('reset', this.render, this);
       this.render();
     },
     render: function() {
-      var html = this.$el.html(this.template());
-      console.log(this.el);
+      // $('.myelement').html( myHtmlStr ).enhanceWithin();
+      var html = this.$el.html(this.template()).enhanceWithin();
       $('body').append(html);
+
+      var newString = this.$el.find('img').attr('src').replace('reading', this.section);
+      this.$el.find('img').attr('src', newString);
+
 
       // Loop through account models within accounts collection, adding
       // rows to the accounts table
