@@ -10,11 +10,13 @@ var bbApp = bbApp || {};
     },
     template: _.template($('#sections-view').html()),
     initialize: function() {
+
       this.render();
     },
     render: function() {
       var html = this.$el.html(this.template());
       $('body').append(html);
+
 
       return this;
     }

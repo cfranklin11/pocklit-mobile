@@ -8,35 +8,34 @@ var bbApp = bbApp || {};
     idAttribute: 'index',
     defaults: {
       index: 0,
+      name:'Tales',
       section: 'reading',
-      lessons: [{
+      lessons: [
+        {
         reception: {
-          audio: 'audio-file',
           text: 'text'
         },
         textInput: {
-          audio: 'audio-file',
           options: [
             {
-              name: 'option 1',
+              text: 'option 1',
               correct: true
             },
             {
-              name: 'option 2',
+              text: 'option 2',
               correct: true
             },
             {
-            name: 'option 3',
+            text: 'option 3',
             correct: true
             },
             {
-            name: 'option 4',
+            text: 'option 4',
             correct: true
             }
           ]
         },
         voiceInput: {
-          audio: 'audio-file',
           text: 'text'
         }
       }]

@@ -22,10 +22,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
 
     <!-- Include jQuery Mobile stylesheets -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
@@ -53,53 +54,67 @@
     </script>
 
 
-    <!-- **** start VIEW **** -->
+    <!-- **** START VIEW **** -->
     <script type="text/template" id="start-view">
 
-      <h1>Touch my face</h1>
-
+      <h1>Hello! my name is lil </br> touch my face</h1>
 
       <div class="ui-body">
         <form action="#/sections" method="get" id="start-form">
-          <button type="submit" class><img src='img/lil.png'></img></button>
+          <button type="submit" class='lil-start'><img src='img/lil.png'></img></button>
         </form>
-        <p class='p-greeting'>Hello!</p>
+
       </div>
     </script>
 
     <!-- **** SECTIONS VIEW **** -->
     <script type="text/template" id="sections-view">
 
-      <h1>Sections</h1>
-      <a href="?#/"><p>home</p></a>
+        <div data-role="header">
+          <h4 style='text-align:center; white-space:normal;'>What do you want to learn today?</h4>
+        </div>
+        <div data-role="content">
+          <div class="ui-body">
+            <p class='center'><img src='img/lil-idea.png' style='width:60%; height:auto'></img></p>
+            <form action="#/sections/reading/modules" method="get" id="reading-form">
+              <button type="submit" class="ui-btn ui-corner-all btn-reading">READING</button>
+            </form>
+            <form action="#/sections/numbers/modules" method="get" id="numbers-form">
+              <button type="submit" class="ui-btn ui-corner-all btn-numbers">NUMBERS</button>
+            </form>
+          </div>
+        </div>
+        <div data-role="footer">
+          <a href="?#/"  class="btn-home" data-enhanced="true" data-role="button" data-icon="arrow-l"  data-mini="true">home</a>
+        </div>
 
-      <div class="ui-body">
-        <form action="#/sections/reading/modules" method="get" id="reading-form">
-          <button type="submit" class="ui-btn ui-corner-all">READING</button>
-        </form>
-        <form action="#/sections/numbers/modules" method="get" id="numbers-form">
-          <button type="submit" class="ui-btn ui-corner-all">NUMBERS</button>
-        </form>
-      </div>
     </script>
 
     <!-- **** MODULES VIEW **** -->
     <script type="text/template" id="modules-view">
 
-      <h1 id="modules-headline"></h1>
-      <a href="?#/sections"><p>sections menu</p></a>
+        <div class='header' data-role="header">
+          <h4 id="modules-headline"></h4>
+        </div>
 
-      <div class="ui-body">
-      </div>
+        <div id='content-body' data-role="content" class="ui-body">
+          <p class='center'>
+            <img src='img/lil-reading.png' style='width:60%; height:auto' />
+          </p>
+          <ul></ul>
+        </div>
+
+        <div class='footer' data-role="footer">
+          <a href="?#/sections" class="btn-home" data-role="button" data-icon="arrow-l">sections menu</a>
+        </div>
+
     </script>
 
     <!-- **** RECEPTION VIEW **** -->
     <script type="text/template" id="reception-view">
-
       <h1 id="reception-headline"></h1>
-
       <div class="ui-body">
-        <a id="reception-link" href="#/"><p>next exercise</p></a>
+        <a id="reception-link" href="#/"> next exercise </a>
       </div>
     </script>
 
@@ -133,6 +148,21 @@
       </div>
     </script>
 
+    <!-- **** TEST VIEW **** -->
+    <script type="text/template" id="test-view">
+
+      <h1 id="test-headline">test!</h1>
+
+      <div class="ui-body">
+        <button type="button" id="test-speech-btn">test speech</button>
+        <button type="button" id="test-read-btn">test read</button>
+        <button type="button" data-option="0"><%= textInput.options[0].text %></button>
+        <button type="button" data-option="1"><%= textInput.options[1].text %></button>
+        <button type="button" data-option="2"><%= textInput.options[2].text %></button>
+        <button type="button" data-option="3"><%= textInput.options[3].text %></button>
+      </div>
+    </script>
+
     <!--<script type="text/javascript" src="cordova.js"></script>-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/config-jqm.js"></script>
@@ -152,6 +182,7 @@
     <script type="text/javascript" src="js/views/text-input-view.js"></script>
     <script type="text/javascript" src="js/views/voice-input-view.js"></script>
     <script type="text/javascript" src="js/views/success-view.js"></script>
+    <script type="text/javascript" src="js/views/test-view.js"></script>
 
     <script type="text/javascript">
       app.initialize();

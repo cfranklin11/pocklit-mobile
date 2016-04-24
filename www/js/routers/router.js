@@ -10,7 +10,46 @@ var bbApp = bbApp || {};
       'sections': 'getSectionSelect',
       'sections/:section/modules': 'getModuleSelect',
       'sections/:section/modules/:module/:lesson/:exercise': 'getExercise',
-      'sections/:section/modules/:module/success': 'getSuccess'
+      'sections/:section/modules/:module/success': 'getSuccess',
+      'test': 'getTest'
+    },
+    getTest: function() {
+      var model = new bbApp.Module({
+        voiceInput: {
+          text: 'text'
+        },
+        textInput: {
+          options: [
+            {
+              text: 'option 1',
+              correct: false
+            },
+            {
+              text: 'option 2',
+              correct: true
+            },
+            {
+              text: 'option 3',
+              correct: false
+            },
+            {
+              text: 'option 4',
+              correct: false
+            }
+          ]
+        }
+      });
+
+      // If page doesn't exist, create the view as JQM page
+      if (!this.testView) {
+        this.testView = new bbApp.TestView({model: model});
+        $('#test-page').attr('data-role', 'page');
+      }
+
+      // Load JQM page
+      $('body').pagecontainer('change', '#test-page', {
+        changeHash: false
+      });
     },
     initialize: function() {
 
@@ -65,111 +104,107 @@ var bbApp = bbApp || {};
       });
     },
     getModuleSelect: function(section) {
-      var testModules;
+      var testModules, sectName;
+
+      sectName = section === 'reading' ? 'Tales' : 'Puzzles';
 
       // Actual API response will only send modules from the current section
       testModules = [
         {
           index: 0,
+          name: sectName,
           section: section,
           lessons: [{
             reception: {
-              audio: 'audio-file',
               text: 'text'
             },
             textInput: {
-              audio: 'audio-file',
               options: [
                 {
-                  name: 'option 1',
+                  text: 'option 1',
                   correct: true
                 },
                 {
-                  name: 'option 2',
+                  text: 'option 2',
                   correct: true
                 },
                 {
-                name: 'option 3',
-                correct: true
+                  text: 'option 3',
+                  correct: true
                 },
                 {
-                name: 'option 4',
-                correct: true
+                  text: 'option 4',
+                  correct: true
                 }
               ]
             },
-            audioInput: {
-              audio: 'audio-file',
+            voiceInput: {
               text: 'text'
             }
           }]
         },
         {
           index: 1,
+          name: sectName,
           section: section,
           lessons: [{
             reception: {
-              audio: 'audio-file',
               text: 'text'
             },
             textInput: {
-              audio: 'audio-file',
               options: [
                 {
-                  name: 'option 1',
+                  text: 'option 1',
                   correct: true
                 },
                 {
-                  name: 'option 2',
+                    text: 'option 2',
+                    correct: true
+                },
+                {
+                  text: 'option 3',
                   correct: true
                 },
                 {
-                name: 'option 3',
-                correct: true
-                },
-                {
-                name: 'option 4',
-                correct: true
+                  text: 'option 4',
+                  correct: true
                 }
               ]
             },
-            audioInput: {
-              audio: 'audio-file',
+            voiceInput: {
               text: 'text'
             }
           }]
         },
         {
           index: 2,
+          name: sectName,
           section: section,
           lessons: [{
             reception: {
-              audio: 'audio-file',
               text: 'text'
             },
             textInput: {
-              audio: 'audio-file',
               options: [
                 {
-                  name: 'option 1',
+                  text: 'option 1',
                   correct: true
                 },
                 {
-                  name: 'option 2',
+                  text: 'option 2',
                   correct: true
                 },
                 {
-                name: 'option 3',
-                correct: true
+                  text: 'option 3',
+                  correct: true
                 },
                 {
-                name: 'option 4',
-                correct: true
+                  text: 'option 4',
+                  correct: true
                 }
               ]
             },
-            audioInput: {
-              audio: 'audio-file',
+            voiceInput: {
               text: 'text'
             }
           }]
@@ -181,6 +216,7 @@ var bbApp = bbApp || {};
       // If page doesn't exist, create the view as JQM page
       if (!this.modulesView) {
         this.modulesView = new bbApp.ModulesView({
+          section: section,
           collection: bbApp.modules
         });
         $('#modules-page').attr('data-role', 'page');
@@ -220,11 +256,10 @@ var bbApp = bbApp || {};
 
       thisViewModel = thisExercise[0].toUpperCase() + thisExercise.slice(1) +
         'View';
-
       // If page doesn't exist, create the view as JQM page
       if (!this[thisExercise + 'View']) {
         this[thisExercise + 'View'] = new bbApp[thisViewModel]({
-          model: thisLesson[thisExercise]
+          model: thisModule
         });
         $('#' + exercise + '-page').attr('data-role', 'page');
 
@@ -252,7 +287,8 @@ var bbApp = bbApp || {};
         $('#success-page').attr('data-role', 'page');
       }
 
-      $('#success-link').attr('href', '?#/sections/' + section + '/modules');
+      // $('#success-link').attr('href', '?#/sections/' + section + '/modules');
+      $('#success-link').attr('href', '?#/sections');
 
       // Load JQM page
       $('body').pagecontainer('change', '#success-page', {
