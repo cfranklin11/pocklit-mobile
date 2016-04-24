@@ -1,4 +1,4 @@
-# Pocklit
+# Pocklit (http://bit.ly/pocklit)
 The glow of learning that’s always with you.
 
 Mobile education app for #SpaceApps 2016. Built with PhoneGap, Backbone.js, Web Speech API.
