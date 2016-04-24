@@ -6,6 +6,7 @@ var bbApp = bbApp || {};
   var AppRouter = Backbone.Router.extend({
     routes: {
       '': 'getLanding',
+      'sections/start': 'getSectionStart',
       'sections': 'getSectionSelect',
       'sections/:section/modules': 'getModuleSelect',
       'sections/:section/modules/:module/:lesson/:exercise': 'getExercise',
@@ -34,6 +35,19 @@ var bbApp = bbApp || {};
 
       // Load JQM page
       $('body').pagecontainer('change', '#landing-page', {
+        changeHash: false
+      });
+    },
+    getSectionStart: function() {
+
+      // If page doesn't exist, create the view as JQM page
+      if (!this.startView) {
+        this.startView = new bbApp.StartView();
+        $('#start-page').attr('data-role', 'page');
+      }
+
+      // Load JQM page
+      $('body').pagecontainer('change', '#start-page', {
         changeHash: false
       });
     },

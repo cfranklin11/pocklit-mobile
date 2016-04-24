@@ -29,22 +29,41 @@
 
     <!-- Include jQuery Mobile stylesheets -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 
-    <title>Pocklit</title>
+    <title>Pocklit, #spaceappschallenge</title>
   </head>
   <body>
 
     <!-- **** LANDING VIEW **** -->
     <script type="text/template" id="landing-view">
 
-      <h1>Pocklit</h1>
+      <h1><img class='logo' src='img/pocklit.png'></h1>
 
       <div class="ui-body">
-        <form action="#/sections" method="get" id="landing-form">
-          <button type="submit" class="ui-btn ui-corner-all">YES</button>
+        <p class='p-greeting'>Are you ready to start?</p>
+        <p class='p-greeting'>say YES or NO</p>
+        <form action="#/sections/start" method="get" id="landing-form">
+          <p class='center'><img src='img/sun.gif' style='height:150px; width:150px;'></img></p>
+          <button type="submit" class="">start</button>
         </form>
-        <button type="button" class="ui-btn ui-corner-all">NO</button>
+      </div>
+    </script>
+
+
+    <!-- **** start VIEW **** -->
+    <script type="text/template" id="start-view">
+
+      <h1>Touch my face</h1>
+
+
+      <div class="ui-body">
+        <form action="#/sections" method="get" id="start-form">
+          <button type="submit" class><img src='img/lil.png'></img></button>
+        </form>
+        <p class='p-greeting'>Hello!</p>
       </div>
     </script>
 
@@ -125,6 +144,7 @@
     <script type="text/javascript" src="js/models/module.js"></script>
     <script type="text/javascript" src="js/collections/modules.js"></script>
     <script type="text/javascript" src="js/views/landing-view.js"></script>
+    <script type="text/javascript" src="js/views/start-view.js"></script>
     <script type="text/javascript" src="js/views/sections-view.js"></script>
     <script type="text/javascript" src="js/views/modules-view.js"></script>
     <script type="text/javascript" src="js/views/module-view.js"></script>
