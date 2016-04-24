@@ -2,6 +2,7 @@
   background-color: #FFF!important;
 }
 
+
 .center {
   margin: auto;
   width: 50%;
@@ -13,7 +14,41 @@
   margin-top: 20px;
 }
 
-.p-greeting {
+#landing-page > .ui-body p.p-greeting {
   text-align: center;
   font-weight: bold;
+}
+
+#landing-form > button {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: #CCC;
+}
+#start-page > h1 {
+  margin-top: 60px;
+}
+#start-form > button.lil-start {
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+#start-form > button > img {
+  width: 70%;
+  height: auto;
+}
+#sections-page > div > a.btn-home {
+
+}
+#reading-form > button {
+  background-color: #8BC34A;
+  border: 0;
+  box-shadow: none;
+  color: #000;
+}
+#numbers-form > button {
+  background-color: #03A9F4;
+  border: 0;
+  box-shadow: none;
+  color: #000;
 }

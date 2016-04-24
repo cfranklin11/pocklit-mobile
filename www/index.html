@@ -53,17 +53,16 @@
     </script>
 
 
-    <!-- **** start VIEW **** -->
+    <!-- **** START VIEW **** -->
     <script type="text/template" id="start-view">
 
-      <h1>Touch my face</h1>
-
+      <h1>Hello! my name is lil </br> touch my face</h1>
 
       <div class="ui-body">
         <form action="#/sections" method="get" id="start-form">
-          <button type="submit" class><img src='img/lil.png'></img></button>
+          <button type="submit" class='lil-start'><img src='img/lil.png'></img></button>
         </form>
-        <p class='p-greeting'>Hello!</p>
+
       </div>
     </script>
 
@@ -71,16 +70,18 @@
     <script type="text/template" id="sections-view">
 
       <h1>Sections</h1>
-      <a href="?#/"><p>home</p></a>
 
-      <div class="ui-body">
-        <form action="#/sections/reading/modules" method="get" id="reading-form">
-          <button type="submit" class="ui-btn ui-corner-all">READING</button>
-        </form>
-        <form action="#/sections/numbers/modules" method="get" id="numbers-form">
-          <button type="submit" class="ui-btn ui-corner-all">NUMBERS</button>
-        </form>
+      <div data-role="content">
+        <div class="ui-body">
+          <form action="#/sections/reading/modules" method="get" id="reading-form">
+            <button type="submit" class="ui-btn ui-corner-all btn-reading">READING</button>
+          </form>
+          <form action="#/sections/numbers/modules" method="get" id="numbers-form">
+            <button type="submit" class="ui-btn ui-corner-all btn-numbers">NUMBERS</button>
+          </form>
+        </div>
       </div>
+      <div data-role="footer"><a href="?#/"  class="btn-home" data-role="button" data-icon="arrow-l"  data-mini="true" >home</a></div>
     </script>
 
     <!-- **** MODULES VIEW **** -->
