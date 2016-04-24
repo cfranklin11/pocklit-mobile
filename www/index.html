@@ -81,16 +81,24 @@
           </form>
         </div>
       </div>
-      <div data-role="footer"><a href="?#/"  class="btn-home" data-role="button" data-icon="arrow-l"  data-mini="true" >home</a></div>
+      <div data-role="footer">
+        <a href="?#/"  class="btn-home" data-role="button" data-icon="arrow-l"  data-mini="true">home</a>
+      </div>
     </script>
 
     <!-- **** MODULES VIEW **** -->
     <script type="text/template" id="modules-view">
 
-      <h1 id="modules-headline"></h1>
-      <a href="?#/sections"><p>sections menu</p></a>
+      <div data-role="header">
+        <h1 id="modules-headline"></h1>
+      </div>
 
-      <div class="ui-body">
+      <div id='content-body' data-role="content" class="ui-body">
+      <ul></ul>
+      </div>
+
+      <div data-role="footer">
+        <a href="?#/sections" class="btn-home" data-role="button" data-icon="arrow-l">sections menu</a>
       </div>
     </script>
 

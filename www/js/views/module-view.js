@@ -4,8 +4,9 @@ var bbApp = bbApp || {};
 
 (function($) {
   bbApp.ModuleView = Backbone.View.extend({
+    tagName:'li',
     template: _.template(
-      '<a href="?#/sections/<%= section %>/modules/<%= index.toFixed() %>/0/reception"><p>module <%= index %></p></a>'
+      '<a href="?#/sections/<%= section %>/modules/<%= index.toFixed() %>/0/reception"><span>module <%= index %></span></a>'
     ),
     initialize: function () {
       this.render()
@@ -19,3 +20,4 @@ var bbApp = bbApp || {};
 
   });
 })(jQuery);
+ 

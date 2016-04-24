@@ -8,7 +8,9 @@ var bbApp = bbApp || {};
     attributes: {
       id: 'modules-page'
     },
+
     template: _.template($('#modules-view').html()),
+
     initialize: function(options) {
       this.collection.on('add', this.addOne, this);
       this.collection.on('reset', this.render, this);
@@ -16,6 +18,7 @@ var bbApp = bbApp || {};
     },
     render: function() {
       var html = this.$el.html(this.template());
+      console.log(this.el);
       $('body').append(html);
 
       // Loop through account models within accounts collection, adding
@@ -26,7 +29,7 @@ var bbApp = bbApp || {};
     },
     addOne: function(module) {
       var moduleView = new bbApp.ModuleView({model: module});
-      this.$el.append(moduleView.render().el);
+      this.$el.find("ul").append(moduleView.render().el);
     }
   });
 })(jQuery);
